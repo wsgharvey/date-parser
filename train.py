@@ -129,9 +129,9 @@ model = DateParser()
 model.learn_inference_network(
     inference_network=pyprob.InferenceNetwork.LSTM,
     observe_embeddings={'date_string': {'dim' : 256}},
-    num_traces=5000,
+    num_traces=5000000,
     batch_size=256,
-    save_prefix="date-parser",
+    save_file_name_prefix="date-parser",
 )
 
 model.save_inference_network("date-parser-5000000")
