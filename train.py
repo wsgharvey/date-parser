@@ -130,8 +130,8 @@ model.learn_inference_network(
     inference_network=pyprob.InferenceNetwork.LSTM,
     observe_embeddings={'date_string': {'dim' : 256}},
     num_traces=5000000,
-    batch_size=256,
-    save_file_name_prefix="date-parser",
+    batch_size=128,
+    save_file_name_prefix="/scratch/wsgh/date-parser/date-parser",
 )
 
-model.save_inference_network("date-parser-5000000")
+model.save_inference_network("/scratch/wsgh/date-parser/date-parser-5000000")
