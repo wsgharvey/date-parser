@@ -24,7 +24,7 @@ class DateParser(Model):
     def __init__(self):
         super().__init__(name="Date with Unkown Format")
         self.possible_dividers = ['\\', '/', '-', ' ', '_', ':', '.']
-        self.longest_string = len('31 / November / 2000')
+        self.longest_string = len('31 / September / 2000')
         self.all_symbols = list(string.ascii_uppercase) + \
                            [str(d) for d in range(10)] + \
                            self.possible_dividers + \
@@ -129,9 +129,9 @@ model = DateParser()
 model.learn_inference_network(
     inference_network=pyprob.InferenceNetwork.LSTM,
     observe_embeddings={'date_string': {'dim' : 256}},
-    num_traces=5000,
-    batch_size=256,
-    save_prefix="date-parser",
+    num_traces=5000000,
+    batch_size=128,
+    save_file_name_prefix="/scratch/wsgh/date-parser/date-parser",
 )
 
-model.save_inference_network("date-parser-5000000")
+model.save_inference_network("/scratch/wsgh/date-parser/date-parser-5000000")
