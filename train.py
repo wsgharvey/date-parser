@@ -24,7 +24,7 @@ class DateParser(Model):
     def __init__(self):
         super().__init__(name="Date with Unkown Format")
         self.possible_dividers = ['\\', '/', '-', ' ', '_', ':', '.']
-        self.longest_string = len('31 / November / 2000')
+        self.longest_string = len('31 / September / 2000')
         self.all_symbols = list(string.ascii_uppercase) + \
                            [str(d) for d in range(10)] + \
                            self.possible_dividers + \
